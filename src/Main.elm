@@ -3,7 +3,7 @@ import Html exposing (..)
 import Color exposing (..)
 
 main =
-    Html.beginnerProgram { model = model, view = view, udpate = update }
+    Html.beginnerProgram { model = model, view = view, update = update }
 
 
 type alias Model =
