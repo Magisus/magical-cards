@@ -1,6 +1,9 @@
 port module Mtg exposing (..)
-import Html exposing (..)
-import Color exposing (..)
+import Html exposing (Html, Attribute, beginnerProgram, div, button, text)
+import Html.Events exposing (onClick)
+import Html.Attributes exposing (style)
+import Color exposing (Color, rgb)
+import Color.Convert exposing (colorToHex)
 
 main =
     Html.beginnerProgram { model = model, view = view, update = update }
@@ -29,6 +32,19 @@ update msg model =
              model
 
 
+createStyle : Model -> Attribute msg
+createStyle model =
+      style
+          [ ("backgroundColor", colorToHex model.background)
+          , ("height", "90px")
+          , ("width", "100%")
+          ]
+
+
 view : Model -> Html Msg
 view model =
-    text "hello"
+    div [] [ div [ createStyle model ] []
+    , button [ onClick Red ] [ text "R" ]
+    , button [ onClick Green ] [ text "G" ]
+    , button [ onClick Blue ] [ text "B" ]
+    ]
