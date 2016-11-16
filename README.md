@@ -4,7 +4,7 @@ Authors:
 Connor Lay
 Maggie Dreyer
 
-This application runs ontop of [electron](http://electron.atom.io/) with the core components written in [elm](http://elm-lang.org/).
+This application runs on top of [electron](http://electron.atom.io/) with the core components written in [elm](http://elm-lang.org/).
 
 ## Installation
 
