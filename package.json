@@ -10,7 +10,8 @@
   },
   "scripts": {
     "start": "electron .",
-    "build": "elm make ./src/Main.elm --output ./build/elm.js"
+    "build": "elm make ./src/MtgSimulator.elm --output ./build/elm.js",
+    "test": "elm test"
   },
   "repository": {
     "type": "git",
