@@ -1,7 +1,8 @@
 port module MtgSimulator exposing (..)
 
 import Html exposing (..)
-import List exposing (head, tail, isEmpty)
+import Html.Events exposing (onClick)
+import List exposing (head, tail, isEmpty, length)
 import Maybe exposing (withDefault)
 
 
@@ -35,7 +36,7 @@ model library hand =
 
 init : ( Model, Cmd Msg )
 init =
-    ( model [] [], Cmd.none )
+    ( model [ "1", "2", "3" ] [], Cmd.none )
 
 
 
@@ -48,7 +49,9 @@ type Msg
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
-    ( model, Cmd.none )
+    case msg of
+        DrawCard ->
+            ( drawCard model, Cmd.none )
 
 
 drawCard : Deck -> Deck
@@ -77,7 +80,11 @@ drawCard deck =
 
 view : Model -> Html Msg
 view model =
-    text "Hello"
+    div []
+        [ text <| "Library: " ++ (model.library |> List.length |> toString)
+        , text <| "Hand: " ++ (model.hand |> List.length |> toString)
+        , button [ onClick DrawCard ] [ text "Draw Card" ]
+        ]
 
 
 
